@@ -1,0 +1,27 @@
+scrapy 的使用方式，
+安装：
+    1：windows下：由于twisted模块有问题，直接去非官方python库去安装
+    2：然后直接pip install scrapy
+    3：需要用到pywin32；安装
+demo
+    1：scrapy startproject mySpider
+    2:cd mySpider/spiders
+    3:scrapy genspider itcast "itcast.cn"
+    最终的结果是：
+        name = 'itcast'
+        allowed_domains = ['itcast.cn']
+        start_urls = ['http://www.itcast.cn/']
+
+
+scrapy 文件的集中保存形式 通过 -o来表示
+# json格式，默认为Unicode编码
+scrapy crawl itcast -o teachers.json
+
+# json lines格式，默认为Unicode编码
+scrapy crawl itcast -o teachers.jsonl
+
+# csv 逗号表达式，可用Excel打开
+scrapy crawl itcast -o teachers.csv
+
+# xml格式
+scrapy crawl itcast -o teachers.xml
