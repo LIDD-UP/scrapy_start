@@ -8,9 +8,25 @@
 import scrapy
 
 
-class ItcastItem(scrapy.Item):
-    name = scrapy.Field()
-    level = scrapy.Field()
+# class ItcastItem(scrapy.Item):
+#     name = scrapy.Field()
+#     level = scrapy.Field()
+#     info = scrapy.Field()
+
+
+# class TencentItem(scrapy.Item):
+#     name = scrapy.Field()
+#     detailLink = scrapy.Field()
+#     positionInfo = scrapy.Field()
+#     peopleNumber = scrapy.Field()
+#     workLocation = scrapy.Field()
+#     publishTime = scrapy.Field()
+
+
+class DoubanItem(scrapy.Item):
+    title = scrapy.Field()
+    content = scrapy.Field()
+    star = scrapy.Field()
     info = scrapy.Field()
 
 

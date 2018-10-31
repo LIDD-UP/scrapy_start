@@ -25,3 +25,34 @@ scrapy crawl itcast -o teachers.csv
 
 # xml格式
 scrapy crawl itcast -o teachers.xml
+
+
+Spider的作用；就是定义爬取网页的策略以及分析网页；
+    类定义了如何爬取某个(或某些)网站。
+    包括了爬取的动作(例如:是否跟进链接)以及如何从网页的内容中提取结构化数据(爬取item)。
+    换句话说，Spider就是您定义爬取的动作及分析某个网页(或者是有些网页)的地方。
+
+
+
+
+
+
+注意pymongo和mysql的连接数据库以及插入数据的区别：
+host = settings['MONGODB_HOST']
+        port = settings['MONGODB_PORT']
+        dbname = settings['MONGODB_DBNAME']
+
+        # pymongo.MongoClient(host, port) 创建MongoDB链接
+        client = pymongo.MongoClient(host=host,port=port)
+
+        # 指向指定的数据库
+        mdb = client[dbname]
+        # 获取数据库里存放数据的表名
+        self.post = mdb[settings['MONGODB_DOCNAME']]
+
+
+    def process_item(self, item, spider):
+        data = dict(item)
+        # 向指定的表里添加数据
+        self.post.insert(data)
+        return item

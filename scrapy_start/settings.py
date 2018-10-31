@@ -64,9 +64,11 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'scrapy_start.pipelines.ScrapyStartPipeline': 300,
-#}
+# ITEM_PIPELINES = {
+#    # 'scrapy_start.pipelines.ScrapyStartPipeline': 300,
+#    #  'scrapy_start.pipelines.ItemJsonPipeline':300,
+#    #  'scrapy_start.pipelines.TencentJsonPipeline':300,
+# }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -88,3 +90,22 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+
+# pymongo setting
+
+ITEM_PIPELINES = {
+        'scrapy_start.pipelines.DoubanspiderPipeline' : 300
+        }
+
+# Crawl responsibly by identifying yourself (and your website) on the user-agent
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36'
+
+# MONGODB 主机环回地址127.0.0.1
+MONGODB_HOST = '127.0.0.1'
+# 端口号，默认是27017
+MONGODB_PORT = 27017
+# 设置数据库名称
+MONGODB_DBNAME = 'DouBan'
+# 存放本次数据的表名称
+MONGODB_DOCNAME = 'DouBanMovies1'
